@@ -137,9 +137,9 @@ We have a working [Android sample](https://github.com/skrapeit/skrape.it/tree/ma
 
 ### Parse and verify HTML from String
 ```kotlin
-@Test
-fun `can read and return html from String`() {
-    htmlDocument("""
+    @Test
+    fun `can read and return html from String`() {
+        htmlDocument("""
         <html>
             <body>
                 <h1>welcome</h1>
@@ -151,15 +151,16 @@ fun `can read and return html from String`() {
             </body>
         </html>""") {
 
-        h1 {
-            findFirst {
-                text toBe "welcome"
+            h1 {
+                findFirst {
+                    text toBe "welcome"
+                }
             }
             p {
                 withClass = "foo"
                 findFirst {
                     text toBe "some p-element"
-                    className  toBe "foo"
+                    className toBe "foo"
                 }
             }
             p {
